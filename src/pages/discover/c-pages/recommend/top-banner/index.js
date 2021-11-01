@@ -1,41 +1,59 @@
-import React, { memo, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { memo, useEffect,shallowEqual,useRef ,useState,useCallback} from "react";
+import { useDispatch,useSelector } from "react-redux";
 import { getBanner } from "../store/actionCreators";
 
 import { Carousel } from "antd";
+import {
+  BannerWrapper,
+  BannerLeft,
+  BannerRight,
+  BannerControl
+} from './style';
 
 export default memo(function LJTopBanner() {
-  //   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const dispatch = useDispatch();
-//   const state = useSelector(
-//     (state) => ({
-//       banners: state.recommend.topBanners,
-//     }),
-//     shallowEqual
-//   );
+  const state = useSelector(state => ({
+    banners: state.recommend.topBanners
+  }), shallowEqual)
 
-  //   const bannerRef = useRef();
+  const bannerRef = useRef();
   useEffect(() => {
     dispatch(getBanner());
   }, [dispatch]);
 
+  const bannerChange = useCallback((from, to) => {
+    setTimeout(() => {
+      setCurrentIndex(from);
+    }, 0);
+  }, []);
+
+  const bgImage = state.banners[currentIndex] && (state.banners[currentIndex].imageUrl + "?imageView&blur=40x20")
+
   return (
-    <div>
-      <Carousel effect="fade" autoplay className="wrap-v2">
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-      </Carousel>
+    <BannerWrapper bgImage={bgImage}>
+    <div className="banner wrap-v2">
+      <BannerLeft>
+        <Carousel autoplay effect="fade" beforeChange={bannerChange} ref={bannerRef}>
+          {
+            state.banners.map((item, index) => {
+              return (
+                <div className="banner-item" key={item.imageUrl}>
+                  <img className="image" src={item.imageUrl} alt={item.typeTitle} />
+                </div>
+              )
+            })
+          }
+        </Carousel>
+      </BannerLeft>
+      <BannerRight>
+      </BannerRight>
+      <BannerControl className="control">
+        <button className="btn left" onClick={e => bannerRef.current.prev()}></button>
+        <button className="btn right" onClick={e => bannerRef.current.next()}></button>
+      </BannerControl>
     </div>
+  </BannerWrapper>
   );
 });
