@@ -56,6 +56,7 @@ export const getBanner = () => {
 export const getRecommend = () => {
   return dispatch => {
     getHotRecommend().then(res => {
+      // console.log(res)
       dispatch(changeRecommendAction(res))
     })
   }
@@ -64,6 +65,7 @@ export const getRecommend = () => {
 export const getAlbum = () => {
   return dispatch => {
     getNewAlbum(10, 0).then(res => {
+      console.log(res)
       dispatch(changeNewAlbumAction(res))
     })
   }

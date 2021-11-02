@@ -2,8 +2,8 @@ import * as actionTypes from './constants';
 
 const defaultState = {
   topBanners: [],
-//   hotRecommends: [],
-//   newAlbum: [],
+  hotRecommends: [],
+  newAlbum: [],
 //   topUpList: {},
 //   topNewList: {},
 //   topOriginList: {},
@@ -14,10 +14,10 @@ const defaultState = {
   switch(action.type) {
     case actionTypes.CHANGE_TOP_BNNAER:
       return {...state , topBanners:action.banners};
-    // case actionTypes.CHANGE_HOT_RECOMMEND:
-    //   return state.set("hotRecommends", action.recommends);
-    // case actionTypes.CHANGE_NEW_ALBUM:
-    //   return state.set("newAlbum", action.newAlbum);
+    case actionTypes.CHANGE_HOT_RECOMMEND:
+      return {...state,hotRecommends:action.recommends};
+    case actionTypes.CHANGE_NEW_ALBUM:
+      return {...state,newAlbum:action.newAlbum}
     // case actionTypes.CHANGE_UP_LIST:
     //   return state.set("topUpList", action.topUpList);
     // case actionTypes.CHANGE_NEW_LIST:
