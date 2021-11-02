@@ -47,7 +47,7 @@ const changeSettleSingsAction = (res) => ({
 export const getBanner = () => {
   return dispatch => {
     getTopBanner().then(res => {
-        console.log(res)
+        // console.log(res)
       dispatch(changeBannerAction(res));
     })
   }
@@ -65,7 +65,7 @@ export const getRecommend = () => {
 export const getAlbum = () => {
   return dispatch => {
     getNewAlbum(10, 0).then(res => {
-      console.log(res)
+      // console.log(res)
       dispatch(changeNewAlbumAction(res))
     })
   }
@@ -74,6 +74,7 @@ export const getAlbum = () => {
 export const getTopData = (idx) => {
   return dispatch => {
     getTopList(idx).then(res => {
+      console.log(res.playlist)
       switch (idx) {
         case 0:
           dispatch(changeNewListAction(res));

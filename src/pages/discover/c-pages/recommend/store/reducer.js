@@ -4,9 +4,9 @@ const defaultState = {
   topBanners: [],
   hotRecommends: [],
   newAlbum: [],
-//   topUpList: {},
-//   topNewList: {},
-//   topOriginList: {},
+  topUpList: {},
+  topNewList: {},
+  topOriginList: {},
 
 //   settleSings: [],
 }
@@ -18,12 +18,12 @@ const defaultState = {
       return {...state,hotRecommends:action.recommends};
     case actionTypes.CHANGE_NEW_ALBUM:
       return {...state,newAlbum:action.newAlbum}
-    // case actionTypes.CHANGE_UP_LIST:
-    //   return state.set("topUpList", action.topUpList);
-    // case actionTypes.CHANGE_NEW_LIST:
-    //   return state.set("topNewList", action.topNewList);
-    // case actionTypes.CHANGE_ORIGIN_LIST:
-    //   return state.set("topOriginList", action.topOriginList);
+    case actionTypes.CHANGE_UP_LIST:
+      return {...state,topUpList:action.topUpList}
+    case actionTypes.CHANGE_NEW_LIST:
+      return {...state,topNewList:action.topNewList}
+    case actionTypes.CHANGE_ORIGIN_LIST:
+      return {...state,topOriginList:action.topOriginList}
     // case actionTypes.CHANGE_SETTLE_SONGER:
     //   return state.set("settleSings", action.settleSings)
     default:
