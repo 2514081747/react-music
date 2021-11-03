@@ -3,6 +3,7 @@ import LJTopBanner from './top-banner/index'
 import LJHotRecommend from './hot-recommend/index'
 import LJNewAlbum from './new-album/index'
 import LJRankList from './ranking-list/index'
+import LJsettSinger from './setting-singer/index'
 import {
     Content,
     RecommendLeft,
@@ -19,7 +20,9 @@ export default memo(function LJrecommend() {
                     <LJNewAlbum></LJNewAlbum>
                     <LJRankList></LJRankList>
                 </RecommendLeft>
-                <RecommendRight></RecommendRight>
+                <RecommendRight>
+                    <LJsettSinger></LJsettSinger>
+                </RecommendRight>
             </Content>
         </div>
     )

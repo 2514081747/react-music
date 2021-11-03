@@ -29,12 +29,22 @@ export default memo(function LJRank(props) {
                         return (
                             <div className='item'>
                                 <span className='index'>{index + 1}</span>
-                                <span className='name'>{item.name}</span>
+                                <a href='/todo' className='name'>{item.name}</a>
+                                <div className="operate">
+                                    <button className="btn sprite_02 play" 
+                                            ></button>
+                                    <button className="btn sprite_icon2 addto"></button>
+                                    <button className="btn sprite_02 favor"></button>
+                                </div>
                             </div>
                         )
                     })
                 }
             </div>
+            <div className='more'>
+                <a href='/todo'>更多&gt;</a>
+            </div>
+            
         </RanWrapper>
     )
 })
