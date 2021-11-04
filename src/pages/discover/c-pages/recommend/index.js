@@ -4,6 +4,7 @@ import LJHotRecommend from './hot-recommend/index'
 import LJNewAlbum from './new-album/index'
 import LJRankList from './ranking-list/index'
 import LJsettSinger from './setting-singer/index'
+import LJHotRadio from './hot-radio/index'
 import {
     Content,
     RecommendLeft,
@@ -22,6 +23,7 @@ export default memo(function LJrecommend() {
                 </RecommendLeft>
                 <RecommendRight>
                     <LJsettSinger></LJsettSinger>
+                    <LJHotRadio></LJHotRadio>
                 </RecommendRight>
             </Content>
         </div>

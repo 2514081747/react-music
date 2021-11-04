@@ -7,8 +7,7 @@ const defaultState = {
   topUpList: {},
   topNewList: {},
   topOriginList: {},
-
-//   settleSings: [],
+  settleSings: [],
 }
  const reducer = (state = defaultState, action) => {
   switch(action.type) {
@@ -24,8 +23,8 @@ const defaultState = {
       return {...state,topNewList:action.topNewList}
     case actionTypes.CHANGE_ORIGIN_LIST:
       return {...state,topOriginList:action.topOriginList}
-    // case actionTypes.CHANGE_SETTLE_SONGER:
-    //   return state.set("settleSings", action.settleSings)
+    case actionTypes.CHANGE_SETTLE_SONGER:
+      return {...state,settleSings:action.settleSings}
     default:
       return state;
   }

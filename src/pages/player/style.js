@@ -4,7 +4,7 @@ import bg from '../../assets/img/playpanel_bg.png'
 export const MusicPlayWrapper = styled.div`
     background-image: url(${bg});
     background-repeat: no-repeat;
-    background-size: 2800px;
+    background-size: 4000px;
     position: fixed;
     bottom: 0;
     left: 0;

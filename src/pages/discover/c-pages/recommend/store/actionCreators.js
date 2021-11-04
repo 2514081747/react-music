@@ -95,6 +95,7 @@ export const getTopData = (idx) => {
 export const getSettleSingers = () => {
   return dispath => {
     getArtistList(5, 5001).then(res => {
+      // console.log(res)
       dispath(changeSettleSingsAction(res))
     })
   }

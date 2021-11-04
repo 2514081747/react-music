@@ -5,7 +5,7 @@ import { PlayCircleOutlined ,PlusSquareOutlined} from '@ant-design/icons'
 
 export default memo(function LJRank(props) {
     const {list} = props
-    const {coverImgUrl,tracks = []} = list
+    const {coverImgUrl,tracks = []} = list 
     return (
         <RanWrapper>
             <div className='header'>
