@@ -5,6 +5,8 @@ import {
     RankRight
 } from './style'
 import JLRankLeft from '../ranking/rank-left/index'
+import LJRankHeader from '../ranking/ranking-header/index'
+import LJRankSongList from '../ranking/ranking-list/index'
 import {useDispatch} from 'react-redux'
 import {getRanKTopList} from './store/actionCreacor'
 
@@ -21,7 +23,8 @@ export default memo(function LJranking() {
                 <JLRankLeft></JLRankLeft>
             </RankLeft>
             <RankRight>
-                aaaa
+                <LJRankHeader></LJRankHeader>
+                <LJRankSongList></LJRankSongList>
             </RankRight>
         </RankWarpper>
     )

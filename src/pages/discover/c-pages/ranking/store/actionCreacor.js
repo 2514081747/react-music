@@ -16,7 +16,7 @@ export const changeRanKIndexAction = (index) => ({
 
 const changeRanKDetail = (res) => ({
     type: actionTypes.CHANGE_RANK_DETAIL,
-    topRanKDetail: res
+    topRanKDetail: res.playlist
   })
 
 export const getRanKTopList = () => {

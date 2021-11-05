@@ -2,7 +2,7 @@ import * as actionTypes from './constants'
 const defaultState = {
     topRanK:[],
     currentIndex:'',
-    topRanKDetail:[]
+    topRanKDetail:{}
 }
 
 const reducer =  (state = defaultState,action) => {
