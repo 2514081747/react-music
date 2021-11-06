@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 
 import { reducer as recommendReducer } from "../pages/discover/c-pages/recommend/store";
 import {reducer as rankReducer} from '../pages/discover/c-pages/ranking/store/index'
+import {reducer as songReducer} from '../pages/discover/c-pages/songs/store/index'
 // // import { reducer as rankingReducer } from "../pages/discover/c-pages/ranking/store";
 // import { reducer as songsReducer } from "../pages/discover/c-pages/songs/store";
 // import { reducer as djradioReducer } from "../pages/discover/c-pages/djradio/store";
@@ -13,6 +14,7 @@ import {reducer as rankReducer} from '../pages/discover/c-pages/ranking/store/in
 export default combineReducers({
   recommend: recommendReducer,
   ranking: rankReducer,
+  song:songReducer
   //   songs: songsReducer,
   //   djradio: djradioReducer,
   //   album: albumReducer,

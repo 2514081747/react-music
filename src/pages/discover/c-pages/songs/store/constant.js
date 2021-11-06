@@ -1,0 +1,1 @@
+export const CHANGE_SONG_CATEGORY = 'song/CHANGE_SONG_CATEGORY'
