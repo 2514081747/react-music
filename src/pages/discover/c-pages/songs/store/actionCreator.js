@@ -1,5 +1,8 @@
 import * as actionTypes from "./constant";
-import {getSongCategory} from '../../../../../services/song'
+import {
+  getSongCategory,
+  getSongCategoryList,
+} from "../../../../../services/song";
 
 const ChangeSongCategoryAction = (res) => {
   return {
@@ -8,12 +11,27 @@ const ChangeSongCategoryAction = (res) => {
   };
 };
 
+const ChangeSongCategoryListAction = (res) => {
+  return {
+    type: actionTypes.CHANGE_SONG_CATEGORY_LIST,
+    songCategoryList: res,
+  };
+};
 
 export const getSongCategorye = () => {
-    return dispatch => {
-        getSongCategory().then(res => {
-            dispatch(ChangeSongCategoryAction(res))
-        })
-        // dispatch(Cha)
-    }
-}
+  return (dispatch) => {
+    getSongCategory().then((res) => {
+      dispatch(ChangeSongCategoryAction(res));
+    });
+    // dispatch(Cha)
+  };
+};
+
+export const getSongCategoryListByName = (cat) => {
+  return (dispatch) => {
+    getSongCategoryList(cat).then((res) => {
+      dispatch(ChangeSongCategoryListAction(res));
+    });
+    // dispatch(Cha)
+  };
+};

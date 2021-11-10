@@ -1,20 +1,21 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect,useState } from "react";
 import { SongHaederWrapper } from "./style";
 import { Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { getSongCategorye } from "../store/actionCreator";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import LJPopUpHeader from '../pop-up/index'
 
 export default memo(function LJSongHeader() {
+  const [isShow,setisShow] = useState(false)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSongCategorye());
   }, [dispatch]);
-  const state = useSelector((state) => ({
-    songCategory: state.song.songCategory,
-  }));
-  console.log(state);
-  const handleCategoryChange = () => {};
+  // console.log(state);
+  const handleCategoryChange = () => {
+    setisShow(!isShow)
+  };
   return (
     <SongHaederWrapper>
       <div className="header">
@@ -24,6 +25,7 @@ export default memo(function LJSongHeader() {
             className="category"
             onClick={(e) => handleCategoryChange()}
             icon={<DownOutlined />}
+            
           >
             选择分类
           </Button>
@@ -34,6 +36,9 @@ export default memo(function LJSongHeader() {
           </Button>
         </div>
       </div>
+      {
+        isShow ? <LJPopUpHeader></LJPopUpHeader> : ''
+      }
     </SongHaederWrapper>
   );
 });

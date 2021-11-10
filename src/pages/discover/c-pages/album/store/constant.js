@@ -1,0 +1,5 @@
+export const CHANGE_HOT_ALBUM_LIST = 'album/CHANGE_HOT_ALBUM_LIST'
+
+export const CHANGE_ALL_ALBUM_LIST = 'album/CHANGE_ALL_ALBUM_LIST'
+
+export const CHANGE_TOTAL_ALBUM = 'album/CHANGE_TOTAL_ALBUM'
