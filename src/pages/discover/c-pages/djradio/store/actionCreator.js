@@ -1,5 +1,5 @@
 import * as actionTypes from './constant'
-import {getDjRadioCatelist,getDjRadioRecommend} from '../../../../../services/dj-radio'
+import {getDjRadioCatelist,getDjRadioRecommend,getDjRadios} from '../../../../../services/dj-radio'
 
 
 const ChangeDjRadioHeaderList = (res) => {
@@ -13,6 +13,13 @@ const ChangeDjRadioRecommend = (res) => {
     return {
         type:actionTypes.CHANGE_DJRADIO_RECOMMEND_LIST,
         djRadioRecommendList:res.djRadios
+    }
+}
+
+const ChangeDjRadioRaningAction = (res) => {
+    return {
+        type:actionTypes.CHANGE_DJRADIO_RAKING_LIST,
+        djRadioRankList:res.djRadios
     }
 }
 
@@ -33,3 +40,12 @@ export const getDjRadioRecommendList = (type) => {
         })
     }
 }
+
+export const getRadiosRankList = (currentId, offset) => {
+    return dispatch => {
+      getDjRadios(currentId, 30, offset).then(res => {
+          console.log(res)
+        dispatch(ChangeDjRadioRaningAction(res));
+      })
+    }
+  }

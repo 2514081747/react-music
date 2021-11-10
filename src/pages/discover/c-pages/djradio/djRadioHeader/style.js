@@ -5,6 +5,7 @@ export const DjRadioHeaderWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     /* justify-content: space-between; */
+   
     .item-img {
       margin-left: 30px;
       width: 80px;
@@ -23,6 +24,15 @@ export const DjRadioHeaderWrapper = styled.div`
         /* width: 60px; */
         border-radius: 5px;
       }
+      &.active{
+        color: #C20C0C;
+        border: 2px solid #d35757;
+        border-radius: 5px;
+        .image {
+          background-position: 48px 0;
+      }
+      
+      
     }
   }
 `;
