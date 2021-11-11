@@ -18,6 +18,13 @@ const ChangeSongCategoryListAction = (res) => {
   };
 };
 
+export const ChangeSongCategoryNameAction = (name) => {
+  return {
+    type: actionTypes.CHANGE_SONG_CARTEGORY_NAME,
+    songCategoryName: name,
+  };
+};
+
 export const getSongCategorye = () => {
   return (dispatch) => {
     getSongCategory().then((res) => {
@@ -27,9 +34,10 @@ export const getSongCategorye = () => {
   };
 };
 
-export const getSongCategoryListByName = (cat) => {
+export const getSongCategoryListByName = (cat,offset,limit) => {
   return (dispatch) => {
-    getSongCategoryList(cat).then((res) => {
+    getSongCategoryList(cat,offset,limit).then((res) => {
+      console.log(res)
       dispatch(ChangeSongCategoryListAction(res));
     });
     // dispatch(Cha)

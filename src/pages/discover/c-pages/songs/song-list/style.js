@@ -9,13 +9,13 @@ export const LJSongListWrapper = styled.div`
   }
   .top-item {
     .coverImgUrl {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       /* margin-bottom: 20px; */
     }
   }
   .position-fix {
-    width: 140px;
+    width: 160px;
     display: flex;
     justify-content: space-between;
     height: 25px;
@@ -47,15 +47,15 @@ export const LJSongListWrapper = styled.div`
       margin-top: -10px;
       margin-bottom: 20px;
     .name {
-      width: 140px;
+      width: 160px;
       font-size: 15px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
     }
     .description {
-      width: 140px;
-      font-size: 12px;
+      width: 160px;
+      font-size: 13px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;

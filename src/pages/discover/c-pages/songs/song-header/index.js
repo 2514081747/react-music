@@ -2,17 +2,23 @@ import React, { memo, useEffect,useState } from "react";
 import { SongHaederWrapper } from "./style";
 import { Button } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import { getSongCategorye } from "../store/actionCreator";
-import { useDispatch } from "react-redux";
+import { getSongCategorye,getSongCategoryListByName,ChangeSongCategoryNameAction } from "../store/actionCreator";
+import { useDispatch,useSelector,shallowEqual } from "react-redux";
 import LJPopUpHeader from '../pop-up/index'
 
 export default memo(function LJSongHeader() {
   const [isShow,setisShow] = useState(false)
+  const [currentName] = useState('全部')
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSongCategorye());
-  }, [dispatch]);
+    dispatch(getSongCategoryListByName(currentName))
+    dispatch(ChangeSongCategoryNameAction(currentName))
+  }, [dispatch,currentName]);
   // console.log(state);
+  const state = useSelector((state) => ({
+    songCategoryName:state.song.songCategoryName
+  }),shallowEqual)
   const handleCategoryChange = () => {
     setisShow(!isShow)
   };
@@ -20,7 +26,7 @@ export default memo(function LJSongHeader() {
     <SongHaederWrapper>
       <div className="header">
         <div className="header-left">
-          <span className="language">华语</span>
+          <span className="language">{state.songCategoryName}</span>
           <Button
             className="category"
             onClick={(e) => handleCategoryChange()}

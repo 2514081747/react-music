@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const LJArtistWrapper = styled.div`
+  
   display: flex;
 `;
 
@@ -14,4 +15,6 @@ export const LJArtistRight = styled.div`
   width: 740px;
   border-right: 1px solid #d3d3d3;
   background-color: #fafafa;
+  /* margin-left: 20px; */
+  /* margin-right: 20px; */
 `;

@@ -1,0 +1,5 @@
+export const CHANGE_ARTIST_LIST = 'artist/CHANGE_ARTIST_LIST'
+
+export const CHANGE_CURRENT_TYPE = 'artist/CHANGE_CURRENT_TYPE'
+
+export const CHANGE_CURRENT_ARES = 'artist/CHANGE_CURRENT_ARES'

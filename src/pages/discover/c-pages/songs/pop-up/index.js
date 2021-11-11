@@ -1,6 +1,6 @@
-import React, { memo,useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { LJPopUpWarpper } from "./style";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   GlobalOutlined,
   ProjectOutlined,
@@ -8,9 +8,18 @@ import {
   MehOutlined,
   BulbOutlined,
 } from "@ant-design/icons";
-import {getSongCategoryListByName} from '../store/actionCreator'
+import {
+  getSongCategoryListByName,
+  ChangeSongCategoryNameAction,
+} from "../store/actionCreator";
 
 export default memo(function LJSongHeaderPopUp() {
+  const [currentName, setCurrentName] = useState("全部");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(ChangeSongCategoryNameAction(currentName));
+    dispatch(getSongCategoryListByName(currentName));
+  }, [dispatch,currentName]);
   const state = useSelector((state) => ({
     songCategory: state.song.songCategory,
   }));
@@ -29,15 +38,22 @@ export default memo(function LJSongHeaderPopUp() {
   const sub5 = state.songCategory.sub.filter((item) => {
     return item.category == 4;
   });
-  const dispatch = useDispatch()
+  
   const itemClick = (name) => {
-      dispatch(getSongCategoryListByName(name))
-  }
+    // dispatch(getSongCategoryListByName(name));
+    console.log(name)
+    if(name){
+      setCurrentName(name);
+    }
+   
+  };
   return (
     <LJPopUpWarpper>
       <div className="triangle"></div>
       <div className="top-header">
-        <div className="allStyle" onClick={e => itemClick('全部')}>全部风格</div>
+        <div className="allStyle" onClick={(e) => itemClick("全部")}>
+          全部风格
+        </div>
       </div>
       <div className="bottom">
         <div className="left">
@@ -85,7 +101,7 @@ export default memo(function LJSongHeaderPopUp() {
             {sub1.map((item) => {
               //    console.log(item)
               return (
-                <a onClick={e => itemClick(item.name)}>
+                <a onClick={(e) => itemClick(item.name)}>
                   {item.name}
                   <span className="divi">|</span>
                 </a>
@@ -95,7 +111,7 @@ export default memo(function LJSongHeaderPopUp() {
           <div className="feng">
             {sub2.map((item) => {
               return (
-                <a onClick={e => itemClick(item.name)} className='aitem'>
+                <a onClick={(e) => itemClick(item.name)} className="aitem">
                   {item.name}
                   <span className="divi">|</span>
                 </a>
@@ -106,7 +122,7 @@ export default memo(function LJSongHeaderPopUp() {
             {sub3.map((item) => {
               //    console.log(item)
               return (
-                <a onClick={e => itemClick(item.name)}>
+                <a onClick={(e) => itemClick(item.name)}>
                   {item.name}
                   <span className="divi">|</span>
                 </a>
@@ -117,7 +133,7 @@ export default memo(function LJSongHeaderPopUp() {
             {sub4.map((item) => {
               //    console.log(item)
               return (
-                <a onClick={e => itemClick(item.name)}>
+                <a onClick={(e) => itemClick(item.name)}>
                   {item.name}
                   <span className="divi">|</span>
                 </a>
@@ -128,7 +144,7 @@ export default memo(function LJSongHeaderPopUp() {
             {sub5.map((item) => {
               //    console.log(item)
               return (
-                <a onClick={e => itemClick(item.name)}>
+                <a onClick={(e) => itemClick(item.name)}>
                   {item.name}
                   <span className="divi">|</span>
                 </a>

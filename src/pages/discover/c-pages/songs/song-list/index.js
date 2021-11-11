@@ -1,13 +1,19 @@
-import React, { memo } from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import React, { memo,useState } from "react";
+import { useSelector, shallowEqual,useDispatch } from "react-redux";
 import { LJSongListWrapper } from "./style";
 import formatNumber from "../../../../../utils/flormatNumber";
+// import {} from '../../../../../services/song'
+import {getSongCategoryListByName} from '../store/actionCreator'
 import { Pagination } from "antd";
 
 export default memo(function LJSongList() {
+  const [currentPage,setCurrentPage] = useState(1)
+  const [pageSize,setPageSize] = useState(35) 
+  const dispatch = useDispatch()
   const state = useSelector(
     (state) => ({
       songCategoryList: state.song.songCategoryList,
+      songCategoryName:state.song.songCategoryName
     }),
     shallowEqual
   );
@@ -17,9 +23,14 @@ export default memo(function LJSongList() {
       return <button className="control prev"> &lt; 上一页</button>;
     }
     if (type === "next") {
-      return <button className="control next">上一页 &gt;</button>;
+      return <button className="control next">下一页 &gt;</button>;
     }
     return originalElement;
+  }
+  const pageChange = (page,pageSize) => {
+    setCurrentPage(page)
+    setPageSize(pageSize)
+    dispatch(getSongCategoryListByName(state.songCategoryName,page,pageSize))
   }
   return (
     <LJSongListWrapper>
@@ -51,11 +62,14 @@ export default memo(function LJSongList() {
         })}
       </div>
       <div className="pagination">
+
         <Pagination
           itemRender={itemRender}
-          defaultCurrent={1}
-          currentPage={1}
+          current={currentPage}
           total={state.songCategoryList.total}
+          pageSize={pageSize}
+          defaultPageSize={pageSize}
+          onChange={(page,pageSize) => pageChange(page,pageSize,currentPage,pageSize) }
         />
       </div>
     </LJSongListWrapper>

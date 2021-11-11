@@ -14,15 +14,15 @@ export const AllAlbumWrapper = styled.div`
     flex-wrap: wrap;
     .hotName {
       margin-top: 5px;
-      width: 140px;
-      font-size: 14px;
+      width: 160px;
+      font-size: 15px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
     }
     .artist-name {
-      width: 140px;
-      font-size: 14px;
+      width: 160px;
+      font-size: 13px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -33,8 +33,15 @@ export const AllAlbumWrapper = styled.div`
   }
   .hotalbumimg {
     /* margin-top: 20px; */
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     /* margin-bottom: 20px; */
+  }
+  .pagination{
+      /* margin: 0 auto; */
+      /* margin-left: 20px; */
+      /* margin: 0 auto; */
+      margin-top: 10px;
+      text-align: center;
   }
 `;
