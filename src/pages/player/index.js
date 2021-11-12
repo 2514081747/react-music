@@ -1,13 +1,19 @@
-import React, { memo } from 'react'
-import { MusicPlayWrapper } from './style'
-import LJPlayerControl from './player-control/index'
+import React, { memo, useEffect } from "react";
+import { MusicPlayWrapper } from "./style";
+import LJPlayerControl from "./player-control/index";
+import { useDispatch } from "react-redux";
+import { getSongDetailfn } from "./store/actionCreator";
 
 export default memo(function LJplayer() {
-    return (
-        <div>
-            <MusicPlayWrapper>
-                <LJPlayerControl></LJPlayerControl>
-            </MusicPlayWrapper>
-        </div>
-    )
-})
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSongDetailfn(1891469546));
+  }, [dispatch]);
+  return (
+    <div>
+      <MusicPlayWrapper>
+        <LJPlayerControl></LJPlayerControl>
+      </MusicPlayWrapper>
+    </div>
+  );
+});
